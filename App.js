@@ -23,39 +23,59 @@ import {
 } from './minprop'
 
 function HomeScreen({ navigation }) {
+  const isLogin = false 
+  
+  if (!isLogin) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.paragraph}>
+          Welcome to Mineral App. Try to take a picture of a mineral to identify.
+        </Text>
+        <TouchableOpacity
+          style={styles.defaultButton}
+          title="take a picture"
+          onPress={() => navigation.navigate('PhotoScreen')}
+        >
+          <Text style={styles.defaultText}>
+            Take a Picture
+          </Text>
+        </ TouchableOpacity>
+        <TouchableOpacity
+          style={styles.alterButton}
+          title="login"
+          onPress={() => navigation.navigate('Login')}
+        >
+          <Text style={styles.defaultText}>
+            Login
+          </Text>
+        </ TouchableOpacity>
+        <TouchableOpacity
+          style={styles.alterButton}
+          title="sign up"
+          onPress={() => navigation.navigate('SignUp')}
+        >
+          <Text style={styles.defaultText}>
+            Sign Up
+          </Text>
+        </ TouchableOpacity>
+      </View>
+    )
+  }
   return (
     <View style={styles.container}>
-      <Text style={styles.paragraph}>
-        Welcome to Mineral App. Try to take a picture of a mineral to identify.
-      </Text>
-      <TouchableOpacity
-        style={styles.defaultButton}
-        title="take a picture"
-        onPress={() => navigation.navigate('PhotoScreen')}
-      >
-        <Text style={styles.defaultText}>
-          Take a Picture
+        <Text style={styles.paragraph}>
+          Welcome to Mineral App. Try to take a picture of a mineral to identify.
         </Text>
-      </ TouchableOpacity>
-      <TouchableOpacity
-        style={styles.alterButton}
-        title="login"
-        onPress={() => navigation.navigate('Login')}
-      >
-        <Text style={styles.defaultText}>
-          Login
-        </Text>
-      </ TouchableOpacity>
-      <TouchableOpacity
-        style={styles.alterButton}
-        title="sign up"
-        onPress={() => navigation.navigate('SignUp')}
-      >
-        <Text style={styles.defaultText}>
-          Sign Up
-        </Text>
-      </ TouchableOpacity>
-    </View>
+        <TouchableOpacity
+          style={styles.defaultButton}
+          title="take a picture"
+          onPress={() => navigation.navigate('PhotoScreen')}
+        >
+          <Text style={styles.defaultText}>
+            Take a Picture
+          </Text>
+        </ TouchableOpacity>
+      </View>
   )
 }
 
@@ -123,7 +143,7 @@ function Login({ navigation }) {
         onPress={() => navigation.navigate('')}
       >
         <Text style={styles.defaultText}>
-          Sign Up
+          Login
         </Text>
       </ TouchableOpacity>
     </SafeAreaView>
