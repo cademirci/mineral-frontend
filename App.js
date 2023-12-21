@@ -23,7 +23,7 @@ import {
 } from './minprop'
 
 function HomeScreen({ navigation }) {
-  const isLogin = false 
+  let isLogin = false 
   
   if (!isLogin) {
     return (
@@ -75,6 +75,9 @@ function HomeScreen({ navigation }) {
             Take a Picture
           </Text>
         </ TouchableOpacity>
+        <Text style={styles.paragraph}>
+          You are successfully logged in
+        </Text>
       </View>
   )
 }
