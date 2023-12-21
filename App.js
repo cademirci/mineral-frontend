@@ -24,7 +24,7 @@ import {
 
 function HomeScreen({ navigation }) {
   let isLogin = false 
-  
+
   if (!isLogin) {
     return (
       <View style={styles.container}>
@@ -262,13 +262,86 @@ function SeeTheResults({ navigation }) {
 }
 
 function DetailedReport({ navigation }) {
+  let name = 'malachite'
+  let mineralObject = berylProperties 
+
+  if (name === 'beryl') {
+    mineralObject = berylProperties.Beryl
+  }
+  else if (name === 'azurite') {
+    mineralObject = azuriteProperties.Azurite
+  }
+  else if (name === 'baryte') {
+    mineralObject = baryteProperties.Baryte
+  }
+  else if (name === 'calcite') {
+    mineralObject = calciteProperties.Calcite
+  }
+  else if (name === 'cerussite') {
+    mineralObject = cerussiteProperties.Cerussite
+  }
+  else if (name === 'copper') {
+    mineralObject = copperProperties.Copper
+  }
+  else if (name === 'hematite') {
+    mineralObject = hematiteProperties.HematiteHide
+  }
+  else if (name === 'malachite') {
+    mineralObject = malachiteProperties.Malachite
+  }
+  else if (name === 'pyrite') {
+    mineralObject = pyriteProperties.Pyrite
+  }
+  else if (name === 'pyromorphite') {
+    mineralObject = pyromorphiteProperties.Pyromorphite
+  }
+  else if (name === 'quartz') {
+    mineralObject = quartzProperties.Quartz
+  }
+  else if (name === 'wulfenite') {
+    mineralObject = wulfeniteProperties.Wulfenite
+  }
+  else {
+    return (
+      <ScrollView style={styles.scrollContainer}>
+        <Text style={styles.mineraltitle}>
+          Unidentified mineral name.
+        </Text>
+      </ScrollView>
+    )
+  }
+
   return (
     <ScrollView style={styles.scrollContainer}>
       <Text style={styles.mineraltitle}>
-       Azurit
+        Name: {mineralObject.Name}
       </Text>
       <Text style={styles.infoParagraph}>
-       detailed information about the mineral
+        Formula: {mineralObject.Formula}
+      </Text>
+      <Text style={styles.infoParagraph}>
+        Contents: {mineralObject.Contents}
+      </Text>
+      <Text style={styles.infoParagraph}>
+        Colour: {mineralObject.Colour}
+      </Text>
+      <Text style={styles.infoParagraph}>
+        Lustre: {mineralObject.Lustre}
+      </Text>
+      <Text style={styles.infoParagraph}>
+        Hardness: {mineralObject.Hardness}
+      </Text>
+      <Text style={styles.infoParagraph}>
+        Specific Gravity: {mineralObject.SpecificGravity}
+      </Text>
+      <Text style={styles.infoParagraph}>
+        Crystal System: {mineralObject.CrystalSystem}
+      </Text>
+      <Text style={styles.infoParagraph}>
+        Origin: {mineralObject.Origin}
+      </Text>
+      <Text style={styles.infoParagraph}>
+        Locality: {mineralObject.Locality.join(', ')}
       </Text>
       <TouchableOpacity
         style={styles.defaultButton}
@@ -457,7 +530,7 @@ const styles = StyleSheet.create({
   },
   infoParagraph: {
     color: '#1a1a1a',
-    margin: 25
+    margin: 10
   },
   mineraltitle: {
     fontSize: 18,
