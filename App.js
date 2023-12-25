@@ -71,7 +71,7 @@ function HomeScreen({ navigation }) {
           <TouchableOpacity
             style={styles.userLeftButton}
             title="take a picture"
-            onPress={() => navigation.navigate('PhotoScreen')}
+            onPress={() => navigation.navigate('Feedback')}
           >
             <Text style={styles.defaultText}>
               ! report feedback
@@ -82,7 +82,7 @@ function HomeScreen({ navigation }) {
           <TouchableOpacity
             style={styles.userRightButton}
             title="take a picture"
-            onPress={() => navigation.navigate('PhotoScreen')}
+            onPress={() => navigation.navigate('History')}
           >
             <Text style={styles.defaultText}>
               History
@@ -91,7 +91,7 @@ function HomeScreen({ navigation }) {
           <TouchableOpacity
             style={styles.userRightButton}
             title="take a picture"
-            onPress={() => navigation.navigate('PhotoScreen')}
+            onPress={() => navigation.navigate('Favourites')}
           >
             <Text style={styles.defaultText}>
               Favourites
@@ -466,7 +466,7 @@ function DisplayPoem({ navigation }) {
   )
 }
 
-function Fovourites({ navigation }) {
+function Favourites({ navigation }) {
   return (
     <View style={styles.container}>
 
@@ -509,6 +509,7 @@ export default function App() {
         <Stack.Screen name="SeeTheResults" component={SeeTheResults} />
         <Stack.Screen name="History" component={History} />
         <Stack.Screen name="Feedback" component={Feedback} />
+        <Stack.Screen name="Favourites" component={Favourites} />
       </Stack.Navigator>
     </NavigationContainer>
   );
