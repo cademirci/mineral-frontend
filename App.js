@@ -23,7 +23,7 @@ import {
 } from './minprop'
 
 function HomeScreen({ navigation }) {
-  let isLogin = false 
+  let isLogin = true 
 
   if (!isLogin) {
     return (
@@ -62,23 +62,60 @@ function HomeScreen({ navigation }) {
     )
   }
   return (
-    <View style={styles.container}>
-        <Text style={styles.paragraph}>
-          Welcome to Mineral App. Try to take a picture of a mineral to identify.
-        </Text>
-        <TouchableOpacity
-          style={styles.defaultButton}
-          title="take a picture"
-          onPress={() => navigation.navigate('PhotoScreen')}
-        >
-          <Text style={styles.defaultText}>
-            Take a Picture
-          </Text>
+    <SafeAreaView style={styles.container}>
+      <Text style></Text>
+      <Text style></Text>
+      <Text style></Text>
+      <SafeAreaView style={styles.wideView}>
+        <View>
+          <TouchableOpacity
+            style={styles.userLeftButton}
+            title="take a picture"
+            onPress={() => navigation.navigate('PhotoScreen')}
+          >
+            <Text style={styles.defaultText}>
+              ! report feedback
+            </Text>
         </ TouchableOpacity>
-        <Text style={styles.paragraph}>
-          You are successfully logged in
+        </View>
+        <View>
+          <TouchableOpacity
+            style={styles.userRightButton}
+            title="take a picture"
+            onPress={() => navigation.navigate('PhotoScreen')}
+          >
+            <Text style={styles.defaultText}>
+              History
+            </Text>
+          </ TouchableOpacity>
+          <TouchableOpacity
+            style={styles.userRightButton}
+            title="take a picture"
+            onPress={() => navigation.navigate('PhotoScreen')}
+          >
+            <Text style={styles.defaultText}>
+              Favourites
+            </Text>
+          </ TouchableOpacity>
+        </View>   
+      </SafeAreaView>
+      
+      <Text style={styles.paragraph}>
+        Welcome to Mineral App. Try to take a picture of a mineral to identify.
+      </Text>
+      <TouchableOpacity
+        style={styles.defaultButton}
+        title="take a picture"
+        onPress={() => navigation.navigate('PhotoScreen')}
+      >
+        <Text style={styles.defaultText}>
+          Take a Picture
         </Text>
-      </View>
+      </ TouchableOpacity>
+      <Text style={styles.paragraph}>
+        You are successfully logged in
+      </Text>
+    </SafeAreaView>
   )
 }
 
@@ -486,6 +523,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  wideView: {
+    flexDirection: 'row',
+    paddingTop: 30
+  },
   buttonContainer: { 
     marginTop: 400,
   },
@@ -506,6 +547,22 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     margin: 20,
     borderRadius: 20,
+  },
+  userLeftButton: {
+    backgroundColor: '#8b8b8b',
+    padding: 5, 
+    marginRight: 60,
+    margin: 15, 
+    borderRadius: '50%',
+    float: 'left'
+  },
+  userRightButton: {
+    backgroundColor: '#8b8b8b',
+    padding: 5,
+    marginLeft: 60, 
+    margin: 5, 
+    borderRadius: '50%',
+    float: 'left'
   },
   takePicButton: {
     backgroundColor: '#2b6d74',
@@ -538,7 +595,8 @@ const styles = StyleSheet.create({
     margin: 10
   },
   flexView: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: 'baseline'
   },
   input: {
     height: 40,
